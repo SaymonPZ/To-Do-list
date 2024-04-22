@@ -59,7 +59,7 @@
     }());
     ;
     var todo = new Todo("To do criado com classe");
-    var reminder = new Reminder("Lembrete criado com classe", new Date(2024, 9, 10), [NotificationMethods.EMAIL]);
+    var reminder = new Reminder("Lembrete criado com classe", new Date(), [NotificationMethods.EMAIL]);
     var taskView = {
         render: function (tasks) {
             var tasksList = document.querySelector("#tasksList");

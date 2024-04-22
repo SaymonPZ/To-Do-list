@@ -73,7 +73,7 @@
     };
 
     const todo = new Todo("To do criado com classe");
-    const reminder = new Reminder("Lembrete criado com classe", new Date(2024,9,10), [NotificationMethods.EMAIL]);
+    const reminder = new Reminder("Lembrete criado com classe", new Date(), [NotificationMethods.EMAIL]);
 
     const taskView ={
         render(tasks: Array<Task>):void{  //função que gera texto conforme 

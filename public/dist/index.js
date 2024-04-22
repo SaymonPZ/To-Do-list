@@ -1,13 +1,41 @@
 "use strict";
 (function () {
-    var todo = {
-        description: "todo", //descrição da tarefa
-        done: false, //marcação se foi feita ou não
-    };
-    var reminder = {
-        description: "reminder", //descrição da lembrete
-        date: "18.05.2024" // data de aviso
-    };
+    ;
+    var Reminder = /** @class */ (function () {
+        function Reminder(description, date, notification) {
+            this.id = "";
+            this.dataCreated = new Date();
+            this.dateUpdated = new Date();
+            this.description = "";
+            this.date = new Date();
+            this.notification = ["EMAIL"];
+            this.description = description;
+            this.date = date;
+            this.notification = notification;
+        }
+        Reminder.prototype.render = function () {
+            return JSON.stringify(this);
+        };
+        return Reminder;
+    }());
+    ;
+    var Todo = /** @class */ (function () {
+        function Todo(description) {
+            this.id = "";
+            this.dataCreated = new Date();
+            this.dateUpdated = new Date();
+            this.description = "";
+            this.done = false;
+            this.description = description;
+        }
+        Todo.prototype.render = function () {
+            return JSON.stringify(this);
+        };
+        return Todo;
+    }());
+    ;
+    var todo = new Todo("To do criado com classe");
+    var reminder = new Reminder("Lembrete criado com classe", new Date(), ["EMAIL"]);
     var taskView = {
         render: function (tasks) {
             var tasksList = document.querySelector("#tasksList");
@@ -16,7 +44,7 @@
             }
             tasks.forEach(function (task) {
                 var LiElement = document.createElement("li");
-                var textNode = document.createTextNode(JSON.stringify(task));
+                var textNode = document.createTextNode(task.render());
                 LiElement.appendChild(textNode);
                 tasksList === null || tasksList === void 0 ? void 0 : tasksList.appendChild(LiElement);
             });
